@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4052817428256660473}
   - component: {fileID: 5702374357477476988}
   - component: {fileID: 5383952331065160034}
+  - component: {fileID: 8496397691610721960}
   m_Layer: 0
   m_Name: car
   m_TagString: Untagged
@@ -237,6 +238,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.541936, y: 1.3698922, z: 3.3627124}
   m_Center: {x: 0.27096802, y: 0.07311839, z: -0.8028624}
+--- !u!114 &8496397691610721960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867044298148062561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da579327e255e5f48a7c9a2fdb75c7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarColorChanger
+  carRenderer: {fileID: 8602107965548691121}
 --- !u!1 &4678175728798599065
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,5 +370,10 @@ PrefabInstance:
 --- !u!4 &3419585312953533286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4adc33bf510fffd489546fb68b8eab4e, type: 3}
+  m_PrefabInstance: {fileID: 2953930089550603405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8602107965548691121 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2333246848714270148, guid: 4adc33bf510fffd489546fb68b8eab4e, type: 3}
   m_PrefabInstance: {fileID: 2953930089550603405}
   m_PrefabAsset: {fileID: 0}
