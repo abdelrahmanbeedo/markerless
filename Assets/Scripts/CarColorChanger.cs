@@ -4,18 +4,29 @@ public class CarColorChanger : MonoBehaviour
 {
     public Renderer carRenderer;
 
+    public void ChangeColor(Color newColor)
+    {
+        if (carRenderer == null)
+        {
+            Debug.LogError("Car Renderer is not assigned!");
+            return;
+        }
+
+        carRenderer.material.color = newColor;
+    }
+
     public void ChangeToBlack()
     {
-        carRenderer.material.color = Color.black;
+        ChangeColor(Color.black);
     }
 
     public void ChangeToBlue()
     {
-        carRenderer.material.color = Color.blue;
+        ChangeColor(Color.blue);
     }
 
     public void ChangeToRed()
     {
-        carRenderer.material.color = Color.red;
+        ChangeColor(Color.red);
     }
 }

@@ -8,7 +8,10 @@ public class OneTimeARCarPlacer : MonoBehaviour
     public GameObject carPrefab;
     public ARRaycastManager raycastManager;
 
+    public CarColorChanger colorChanger;
+
     private bool carPlaced = false;
+    private GameObject spawnedCar;
 
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -16,13 +19,6 @@ public class OneTimeARCarPlacer : MonoBehaviour
     {
         if (carPlaced)
             return;
-
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
-        {
-            TryPlaceObject(Input.mousePosition);
-        }
-#endif
 
         if (Input.touchCount > 0)
         {
@@ -33,6 +29,13 @@ public class OneTimeARCarPlacer : MonoBehaviour
                 TryPlaceObject(touch.position);
             }
         }
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            TryPlaceObject(Input.mousePosition);
+        }
+#endif
     }
 
     void TryPlaceObject(Vector2 screenPosition)
@@ -41,7 +44,14 @@ public class OneTimeARCarPlacer : MonoBehaviour
         {
             Pose hitPose = hits[0].pose;
 
-            Instantiate(carPrefab, hitPose.position, hitPose.rotation);
+            spawnedCar = Instantiate(carPrefab, hitPose.position, hitPose.rotation);
+
+            CarColorChanger spawnedColorChanger = spawnedCar.GetComponent<CarColorChanger>();
+
+            if (spawnedColorChanger != null)
+            {
+                colorChanger.carRenderer = spawnedColorChanger.carRenderer;
+            }
 
             carPlaced = true;
         }
