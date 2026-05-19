@@ -9,6 +9,7 @@ public class OneTimeARCarPlacer : MonoBehaviour
     public ARRaycastManager raycastManager;
 
     public CarColorChanger colorChanger;
+    public DoorToggle doorController;
 
     private bool carPlaced = false;
     private GameObject spawnedCar;
@@ -48,9 +49,16 @@ public class OneTimeARCarPlacer : MonoBehaviour
 
             CarColorChanger spawnedColorChanger = spawnedCar.GetComponent<CarColorChanger>();
 
-            if (spawnedColorChanger != null)
+            if (spawnedColorChanger != null && colorChanger != null)
             {
                 colorChanger.carRenderer = spawnedColorChanger.carRenderer;
+            }
+
+            DoorToggle spawnedDoorToggle = spawnedCar.GetComponent<DoorToggle>();
+
+            if (spawnedDoorToggle != null && doorController != null)
+            {
+                doorController.doorAnimator = spawnedDoorToggle.doorAnimator;
             }
 
             carPlaced = true;
